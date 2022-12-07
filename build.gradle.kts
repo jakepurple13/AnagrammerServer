@@ -8,6 +8,7 @@ plugins {
     kotlin("jvm") version "1.7.22"
     id("io.ktor.plugin") version "2.1.3"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.7.22"
+    id("io.github.jakepurple13.ProjectInfo") version "1.0.6"
 }
 
 group = "anagramer"
@@ -18,6 +19,10 @@ application {
 
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
+}
+
+projectInfo {
+    excludeFileTypes.addAll(arrayOf("txt", "", "bat"))
 }
 
 repositories {
